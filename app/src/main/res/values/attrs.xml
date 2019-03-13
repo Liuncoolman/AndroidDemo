@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ExpandableTextViewAttr">
+        <!-- 允许显示最大行数 -->
+        <attr name="maxExpandLines" format="integer"></attr>
+        <!-- 动画执行时间 -->
+        <attr name="duration" format="integer"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="CollapsedTextView">
+        <!--折叠行数，默认为4行-->
+        <attr name="collapsedLines" format="integer" />
+        <!--折叠时的提示文案，默认为"展开全文"-->
+        <attr name="expandedText" format="string" />
+        <!--展开时的提示文案，默认为"收起全文"-->
+        <attr name="collapsedText" format="string" />
+        <!--折叠时的提示图片，优先级大于文案-->
+        <attr name="expandedDrawable" format="reference" />
+        <!--展开时的提示图片，优先级大于文案-->
+        <attr name="collapsedDrawable" format="reference" />
+        <!--// 提示的位置，end(默认)-在文字末尾，bottom-在文字下面-->
+        <attr name="tipsGravity">
+            <flag name="end" value="0" />
+            <flag name="bottom" value="1" />
+        </attr>
+        <!--提示文案的颜色，默认为linkColor-->
+        <attr name="tipsColor" format="reference|color" />
+        <!--提示文案是否有下划线，默认没有-->
+        <attr name="tipsUnderline" format="boolean" />
+        <!--提示是否可点击，默认不可点击-->
+        <attr name="tipsClickable" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableTextView">
+        <attr name="maxCollapsedLines" format="integer"/>
+        <attr name="animDuration" format="integer"/>
+        <attr name="animAlphaStart" format="float"/>
+        <attr name="expandIndicator" format="reference"/>
+        <attr name="collapseIndicator" format="reference"/>
+        <attr name="expandToggleType" format="enum">
+            <enum name="ImageButton" value="0"/>
+            <enum name="TextView" value="1"/>
+        </attr>
+        <attr name="expandableTextId" format="reference"/>
+        <attr name="expandCollapseToggleId" format="reference"/>
+        <attr name="expandToggleOnTextClick" format="boolean"/>
+    </declare-styleable>
+</resources>

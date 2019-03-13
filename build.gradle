@@ -1,0 +1,177 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.3.21'
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.1'
+        //添加apt插件
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+
+// http://www.groovy-lang.org/api.html
+// https://blog.csdn.net/singwhatiwanna/article/details/76084580
+// gradle Liun
+task(Liun).doLast{
+    println "start execute demo"
+    demo()
+}
+
+def demo(){
+    // 1.Groovy的变量和方法声明
+    HelloWorld()
+    hello()
+    hello("Groovy!") // Groovy!
+
+    // 2.Groovy的数据类型 定义规则与kotlin相似
+    type()
+
+    // 3.Groovy的闭包
+    /*{ parameters ->
+        code
+    }*/
+    closure()
+
+    // 4.Groovy的List和Map
+    listAndmap()
+    // 5.Groovy的读取文件
+    readFile()
+    // 6.Groovy的duqu
+}
+
+def HelloWorld(){
+    def a = 1 // 变量类型可以自动推导
+    def b = "hello world"
+    int c = 1
+    println "Hello World!"
+    println "a->${a},n->${b},c->${c}"
+}
+
+
+def hello() {
+    println "hello world" // 方法调用省略括号
+    1                       // 方法返回值省略return
+}
+
+def hello(String msg) {
+    println (msg)
+}
+
+// 方法省略参数类型
+int hello(msg) {
+    println (msg)
+    return 1
+}
+
+// 方法省略参数类型
+//int hello(msg) {
+//    println msg
+//    return 1 // 这个return不能省略
+//    println "done"
+//}
+
+def type(){
+    def a = 1
+    def b = "hello"
+    def c = "a=${a}, b=${b}"
+
+    println c // a=1, b=hello
+}
+
+def closure(){
+    def closure = { int a, String b ->
+        println "a=${a}, b=${b}, I am a closure!"
+    }
+
+    closure(1,"1") // a=1, b=1, I am a closure!
+
+    // 这里省略了闭包的参数类型
+    def test = { a, b ->
+        println "a=${a}, b=${b}, I am a closure!"
+    }
+
+    test("hello","groovy")
+
+    def ryg = { a, b ->
+        a + b
+    }
+
+    def c = ryg(2,8)
+    println c
+
+    // 如果闭包不指定参数，那么它会有一个隐含的参数 it
+    // 这里省略了闭包的参数类型
+    def test1 = {
+        println "find ${it}, I am a closure!"
+    }
+    test1(100)
+}
+
+def listAndmap(){
+    def test = ["hello", 100, true]
+    // 获取角标值
+    println test[0] // find 100, I am a closure!
+    // 修改角标值
+    test[1] = "world" // hello
+    println test[1] // world
+
+    // 操作符<< 向List中添加新元素的意思
+    test << "new"
+    println test // [hello, world, true, new]
+
+    def testMap = ["id":1, "name":"XiaoMing", "isMale":true]
+    println testMap // {id=1, name=XiaoMing, isMale=true}
+    // 修改
+    testMap.name = "ZhangSan"
+    println testMap // {id=1, name=ZhangSan, isMale=true}
+    // 遍历
+    testMap.each{key,value->
+        println "key= ${key},value=${value}"
+    }
+
+    testMap.each{
+        println "key=${it.key},value=${it.value}"
+    }
+
+    testMap.eachWithIndex{entry, index ->
+//        0 ---> (id,1)
+//        1 ---> (name,ZhangSan)
+//        2 ---> (isMale,true)
+        println "${index} ---> (${entry.key},${entry.value})"
+    }
+
+    testMap.eachWithIndex{key, value, index ->
+        println "${index} ---> (${key},${value})"
+    }
+
+}
+
+def readFile(){
+    def file = new File("test.txt")
+    file.eachLine{line, lineNo ->
+        print "${line} " // hello world groovy !
+    }
+
+    //def xmlFile = new XmlParser().parse(new File("color.xml"))
+}
