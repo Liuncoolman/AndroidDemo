@@ -2,12 +2,14 @@ package com.liun.demo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.liun.demo.rx.RxJavaMainActivity;
 import com.liun.demo.uploadProgress.UploadProgressActivity;
 import com.liun.demo.voice.MediaPlayerActivity;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Description:
@@ -29,5 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void onMediaPlayer(View view) {
         startActivity(new Intent(this, MediaPlayerActivity.class));
+    }
+
+    public void onRxJava(View view){
+
+        startActivity(new Intent(this, RxJavaMainActivity.class));
     }
 }

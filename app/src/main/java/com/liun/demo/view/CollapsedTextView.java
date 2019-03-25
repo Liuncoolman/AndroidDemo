@@ -1,17 +1,8 @@
 package com.liun.demo.view;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.IntDef;
-import android.support.annotation.IntRange;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.AppCompatTextView;
 import android.text.Layout;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -24,9 +15,17 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IntDef;
+import androidx.annotation.IntRange;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.content.ContextCompat;
 
 /**
  * Description:
@@ -158,7 +157,8 @@ public class CollapsedTextView extends AppCompatTextView implements View.OnClick
 //            mTipsColor = typed.getColor(R.styleable.CollapsedTextView_tipsColor, 0);
 //            mTipsUnderline = typed.getBoolean(R.styleable.CollapsedTextView_tipsUnderline, false);
 //            mTipsClickable = typed.getBoolean(R.styleable.CollapsedTextView_tipsClickable, true);
-//            int color = typed.getColor(R.styleable.CollapsedTextView_collapsedTextColor, getResources().getColor(R.color.color_font_nine));
+//            int color = typed.getColor(R.styleable.CollapsedTextView_collapsedTextColor, getResources().getColor(R
+// .color.color_font_nine));
 //            typed.recycle();
 //
 //            setTextColor(color);

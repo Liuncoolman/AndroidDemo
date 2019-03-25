@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.widget.TextView;
 
 import com.liun.demo.R;
 
@@ -16,7 +17,7 @@ import com.liun.demo.R;
  * Author：Liun
  * Date:2018/07/17 09:58
  */
-public class AlignTextView extends android.support.v7.widget.AppCompatTextView {
+public class AlignTextView extends TextView {
     private static final String TAG = "AlignTextView";
     private static final int SUFFIXMODE_FULL_WIDTH = 1;
     private static final int SUFFIXMODE_HALF_WIDTH = 2;
