@@ -25,4 +25,8 @@ public class RxJavaMainActivity extends AppCompatActivity {
     public void simple(View view){
         startActivity(new Intent(this,RxSimpleActivity.class));
     }
+
+    public void methodButton(View view){
+        startActivity(new Intent(this,RxMethodActivity.class));
+    }
 }
